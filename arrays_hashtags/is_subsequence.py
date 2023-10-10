@@ -8,10 +8,8 @@ class Solution(object):
             j+=1                        #..Now it will compare s[0] to t[1]..since "a" == "a" the i will increase by one...
                                         #now the if will compare s[1] to t[2], "b" =! "a" so it will only add 1 to j..
         if i == len(s):                 # if will compare s[1] to t[3], "b" == "b", now it will exit the loop...
-            return True            
+            return True
         return False
-
-
 
 solution = Solution()
 s = "ab"
