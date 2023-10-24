@@ -20,6 +20,8 @@ print(result)
 #s.isalnum() checks to see that the element is alpha or numeric
 #..with this we can eliminate any element that is not alpha or numberic such as : or ,
 
+#note: there is also .isalpha() or .isnumeric() to check for letters and numbers
+
 #.strip lol
 # .strip(" ") eliminates white spaces at the end and beginning
                     #note . we cannot do s.strip(',') because it is...
