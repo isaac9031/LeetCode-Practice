@@ -26,24 +26,28 @@
         #will need a dictinary to keep track
 
 
-class Solution:
-    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-        strs_table = {}
+def groupAnagrams(strs: list[str]) -> list[list[str]]:
+    #sort all strings inside the list
+    #need a dictionary to save them
+    diccionario = {}
+    for string in strs:
+        sort_list = sorted(string)  #will make a list for each. ex : ['a','e', 't']. sorted_list is a list
+        sort_string = ''.join(sort_list) #''.join(sorted_string) takes all elements in a list and joins them into a string, no string separator''
+                                                #/...Ex:  aet  now sorted_string is a string
+        if sort_string not in diccionario:
+            diccionario[sort_string] = []  #used [] because we want a list as the value, which we add strings next.  didn't use diccionario[sort_string]=string since we want a list of all the words that are the same, not only one string, but a list of strings
+        diccionario[sort_string].append(string)
+    return list(diccionario.values())  #list() can only create a list from an iterable object such as dictionaries, strings, tuples. The list() function occupies more space than the [] method
 
-        for string in strs:
-            print(sorted(string))
-            print(''.join(sorted(string)))
-            sorted_string = ''.join(sorted(string))
-            if sorted_string not in strs_table:
-                strs_table[sorted_string] = []
 
-            strs_table[sorted_string].append(string)
-        print(strs_table)
 
-        return list(strs_table.values())
-solution = Solution()
 strs = ["eat","tea","tan","ate","nat","bat"]
-result = solution.groupAnagrams(strs)
-print(result)
+print(groupAnagrams(strs))
+
+
+# list. sort() will sort the list in-place, mutating its indexes and returning None ,
+# whereas sorted() will return a new sorted list leaving the original list unchanged.
+#  Another difference is that sorted() ACCEPTS ANY ITERABLE while list.sort() is a
+# method of the list class and can ONLY BE USED WITH LISTS
 # Time complexity: O(m*nlogn))
 # Space complexity: O(n)
