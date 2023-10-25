@@ -38,10 +38,10 @@ class Solution(object):
         for i in range(len(s)):
         #creating,count_S[s[i]]key = value (1 + count_S.get(s[i],0))pairs
             count_S[s[i]]=1 + count_S.get(s[i],0) #it will check to see if there is a value inside count_S[s[i]], if its not then will start at 0 since .get is to get a value
-            count_T[t[i]]=1 + count_T.get(t[i],0) # it will add 1 to the value of whatever key,s[i], we are on
+            count_T[t[i]]=1 + count_T.get(t[i],0) # it will add 1 to the value of whatever key,t[i], we are on
         print(count_T)              # the 0 above allows to start a new key with a 0 value that later adds a 1 to it
         for c in count_T:
-            if count_T[c] != count_S.get(c, 0):
+            if count_T[c] != count_S.get(c, 0): #it looks for the specific value of that key
                 return False
         return True
 
