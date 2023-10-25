@@ -36,7 +36,8 @@ def groupAnagrams(strs: list[str]) -> list[list[str]]:
                                                 #/...Ex:  aet  now sorted_string is a string
         if sort_string not in diccionario:
             diccionario[sort_string] = []  #used [] because we want a list as the value, which we add strings next.  didn't use diccionario[sort_string]=string since we want a list of all the words that are the same, not only one string, but a list of strings
-        diccionario[sort_string].append(string)
+        diccionario[sort_string].append(string) #adding to the [], which is in the value side, if it already exists
+    print(diccionario.values())
     return list(diccionario.values())  #list() can only create a list from an iterable object such as dictionaries, strings, tuples. The list() function occupies more space than the [] method
 
 
