@@ -9,7 +9,7 @@
 #reduce left spaces by input*
 
 
-def triangle(input):
+def triangle(input):                #time complexity O(n^2) since it has print
     increment = 0
     for n in range(input+1):
         if n>=1:
@@ -26,3 +26,9 @@ triangle(input)
 # 5   n=3   n+2
 # 7   n=4   n+3
 # 9
+
+
+# Time complexity O(n^2)
+# One 'n' comes from the for loop, where the loop iterates 'n' times, ranging from 0 to input.
+# The other 'n' comes from the print statement within the loop, where the print operation involves...
+# ...creating a string of length 'n' in terms of the asterisks ('*') to be printed
