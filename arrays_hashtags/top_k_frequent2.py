@@ -3,7 +3,7 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
     # freq = [[]for i in range(len (nums) + 1)]
     freq = []
 
-    for i in range(len(nums) + 1):
+    for i in range(len(nums) + 1):  #will make freq = [[], [], [], [], [], [], [], []]
         freq.append([])
 
     for n in nums:
