@@ -1,40 +1,18 @@
-# class Solution:
-#   def search(self, arr, target_sum):
-#     left, right = 0, len(arr) - 1
-#     while(left < right):
-#       current_sum = arr[left] + arr[right]
-#       if current_sum == target_sum:
-#         return [left, right]
-
-#       if target_sum > current_sum:
-#         left += 1  # we need a pair with a bigger sum
-#       else:
-#         right -= 1  # we need a pair with a smaller sum
-#     return [-1, -1]
-
-# def main():
-#   sol = Solution()
-#   print(sol.search([1, 2, 3, 4, 6], 6))
-#   print(sol.search([2, 5, 9, 11], 11))
-
-
 
 class Solution:
   def removeD(self, arr):
-    next_non_duplicate = 1
-
-    i = 0
-    while(i < len(arr)):
-      if arr[next_non_duplicate - 1] != arr[i]: 
-        arr[next_non_duplicate] = arr[i]
-        next_non_duplicate += 1
-      i += 1
-
-    return next_non_duplicate
-
+    l = 1
+    for r in range(1,len(arr)):
+      if arr[r] != arr[r-1]:
+        arr[l] = arr[r]
+        l+=1
+    return l
 
 sol = Solution()
 print(sol.removeD([2, 3, 3, 3, 6, 9, 9]))
+
+
+
 
 # Given an integer array nums sorted in non-decreasing order, remove the
 # duplicates in-place such that each unique element appears only once.
@@ -43,3 +21,25 @@ print(sol.removeD([2, 3, 3, 3, 6, 9, 9]))
 
 #remove duplicates in-place, can only appear once
 #relative order to stay the same
+
+
+
+
+# Using a while loop:
+# class Solution:
+#   def removeD(self, arr):
+#     left = 1
+
+#     i = 0
+#     while(i < len(arr)):
+#       if arr[left - 1] != arr[i]: # on the sec-loop it will go in since arr[0] != arr[1], arr[1]==arr[2] so it will not go in
+#                                           #>>arr[2]==arr[3] if will not be compiled, arr[2] "3" !=arr[4] "6">> arr[2] "6" != arr[5] "9" >> arr[3] "9" == arr[6] "9"
+#         arr[left] = arr[i] #index 1 will keep value of 3>>arr[2] will be 6 >arr[3] = arr[5] "9"
+#         left += 1  #will become 2> then 3 >4
+#       i += 1 #i icreases by one no matter what
+
+#     return left
+
+
+# sol = Solution()
+# print(sol.removeD([2, 3, 3, 3, 6, 9, 9]))
