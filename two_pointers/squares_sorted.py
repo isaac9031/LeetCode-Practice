@@ -1,23 +1,23 @@
 #Using pointers
-# def sortedSquares(nums: list[int]) -> list[int]:
-#     new_one = []
+def sortedSquares(nums: list[int]) -> list[int]:
+    new_one = []
 
-#     left, right = 0, len(nums)-1
-#     while left <= right: #end the loop before they cross each other
-#         if nums[right] * nums[right]>nums[left]*nums[left]:
-#             new_one.append(nums[right]*nums[right])
-#             right-=1
-#         else:
-#             new_one.append(nums[left]*nums[left])
-#             left+=1
-#     return new_one[::-1]
-
-
-# nums = [-5,-3,-2,-1]
-# print(sortedSquares(nums))
+    left, right = 0, len(nums)-1
+    while left <= right: #end the loop before they cross each other
+        if nums[right] * nums[right]>nums[left]*nums[left]:
+            new_one.append(nums[right]*nums[right])
+            right-=1
+        else:
+            new_one.append(nums[left]*nums[left])
+            left+=1
+    return new_one[::-1]
 
 
-#Two pointer approach
+nums = [-5,-3,-2,-1]
+print(sortedSquares(nums))
+
+
+#Two pointer approach BEST time space complexity O(n)
 #makes a list ans = [0, 0, 0, 0] then it replaces the k with the greatest one
 #it moves the left ^ if it is greater than the right, it moves the right one down if its greater than the current left
 def sortedSquares(nums: list[int]) -> list[int]:
