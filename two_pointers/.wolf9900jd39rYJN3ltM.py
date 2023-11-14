@@ -5,7 +5,7 @@ def twoSum(nums: list[int], target: int) -> list[int]:
             current_total = nums[l] + nums[r]
             if current_total == target:
                     return [l,r]
-            else: #move the left to the right if we need a greater value to get the total
+            elif target < current_total: #move the left to the right if we need a greater value to get the total
                 r-=1
             # else:#move the right to the left if we need a smaller value to get the total
             #     l+=1
