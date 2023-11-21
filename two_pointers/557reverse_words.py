@@ -18,7 +18,7 @@ def reverseWords( s: str) -> str:
         if s[R] == " " or R == len(s)-1:
             TempR = R-1
             if R == len(s)-1:
-                TempR == len(s)-1
+                TempR = R
             while L < TempR: #L is 0 and R is 4
                 s[TempR], s[L] = s[L], s[TempR] #they get switched, need to move now to the next one
                 L+=1
@@ -27,5 +27,5 @@ def reverseWords( s: str) -> str:
     return "".join(s)
 
 
-s = "Let's take LeetCode contest"
+s = "contest"
 print(reverseWords(s))
