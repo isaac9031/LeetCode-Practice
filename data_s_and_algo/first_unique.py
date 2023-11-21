@@ -47,7 +47,7 @@ class Solution:
             print(s[i+1::])
             #checks behind
             print(s[:i])
-            if s[i] not in s[i+1::] and s[i] not in s[:i]:
+            if s[i] not in s[i+1::] and s[i] not in s[:i:]:
                 return i
         return -1
 

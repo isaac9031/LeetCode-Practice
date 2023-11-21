@@ -6,6 +6,6 @@ class Solution():
         return a
 
 solution = Solution()
-n = 5
+n = 7
 result = solution.fib(n)
 print(result)
