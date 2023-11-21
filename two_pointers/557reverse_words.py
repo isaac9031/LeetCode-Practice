@@ -27,5 +27,5 @@ def reverseWords( s: str) -> str:
     return "".join(s)
 
 
-s = "contest"
+s = "Let's take LeetCode contest"
 print(reverseWords(s))
