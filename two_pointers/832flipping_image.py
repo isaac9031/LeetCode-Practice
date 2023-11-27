@@ -46,3 +46,25 @@ def flipAndInvertImage( image: list[list[int]]) -> list[list[int]]:
 
 image = [[1,1,0],[1,0,1],[0,0,0]]
 print(flipAndInvertImage(image))
+
+
+# Another way to do it, needs to change the 1 to 0 and vice versa....
+
+def flipAndInvertImage( image: list[list[int]]) -> list[list[int]]:
+    # for i in range(len(image)):
+    #     image[i] = image[i][::-1]
+    #     print(i)
+    #     print(image)
+    # return image
+    for row in image:
+        l, r = 0, len(row) - 1
+        while l <= r:
+            print(row[l])
+            print(row[l]^1)
+            row[l], row[r] = row[r]^1, row[l]^1
+            r -= 1
+            l += 1
+    return image
+
+image = [[1,1,0],[1,0,1],[0,0,0]]
+print(flipAndInvertImage(image))
