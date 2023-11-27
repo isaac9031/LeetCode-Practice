@@ -27,9 +27,9 @@ def mergeAlternately(word1: str, word2: str) -> str:
         mergedS+=word1[l]
         mergedS+=word2[l]
         l+=1
-    if l == n and n == w1: #we add the rest of the characters from the longest word
+    if n == w1: #we add the rest of the char from the longest word
         mergedS+=word2[l:]
-    if l == n and n == w2:
+    if n == w2:
         mergedS+=word1[l:]
     return mergedS
 
