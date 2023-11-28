@@ -35,19 +35,21 @@
 # print(pivotArray(nums, pivot))
 
 
-
+#Uses two pointers for the lista and two for the nums array
+#on both cases one pointer starts on the left and the other one starts in the far right..
+#then they both move towards the inside, never move the l and r unless a value is added
 def pivotArray(nums: list[int], pivot: int) -> list[int]:
     n = len(nums)
-    r = n-1
+    r = n-1 #r and l are going to be used to place the correct element in the new lista
     l = 0
-    lista = [pivot]*n
-    for m in range(n):
-        j = n-1-m
-        if nums[m]<pivot:
-            lista[l] = nums[m]
+    lista = [pivot]*n #lista = [10, 10, 10, 10, 10, 10, 10]
+    for m in range(n): #m and j are used to go over the nums array. m starts at indx 0 of nums and j starts at the end of it
+        j = n-1-m  #will start at indx 6 >> 5 >> 4 .. m indx will be 0>1>2 etc
+        if nums[m]<pivot: #will be in charged of numbers less than pivot and start on theleft of nums array
+            lista[l] = nums[m] #will add all numbers less than the pivot from  left to right  from the nums array to the lista array and then moving right once in the lista array
             l+=1
-        if nums[j]>pivot:
-            lista[r] = nums[j]
+        if nums[j]>pivot: #in charged of numbers greater than pivot and start on the right side of nums array
+            lista[r] = nums[j] #will add all numbers greater than the pivot from right to left from the nums array to the lista array starting at the end and then going left once every time in the lista array
             r-=1
     return lista
 
