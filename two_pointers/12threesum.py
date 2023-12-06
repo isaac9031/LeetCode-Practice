@@ -13,7 +13,7 @@ def threeSum( nums: list[int]) -> list[list[int]]:
             if total == 0:
                 triplets.append([v,nums[lp],nums[rp]])
                 lp+=1
-                while nums[lp] == nums[lp-1] and lp<rp: #used to not repeat the value in the same index as previous solutions, alsow we never want to pass the right pointer.
+                while nums[lp] == nums[lp-1] and lp<rp: #used to not repeat the value in the same index as previous solutions, also we never want to pass the right pointer.
                     lp+=1 #used to skip a value that has already been taken care of before, in this case the second -3 will be skipped since we dont want to repeat it for the same index in the new list being made
             elif total< 0:
                 lp+=1
