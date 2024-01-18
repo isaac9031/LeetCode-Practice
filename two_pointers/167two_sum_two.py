@@ -24,3 +24,22 @@ def twoSum( numbers: list[int], target: int) -> list[int]:
 numbers = [2,3,4]
 target = 6
 print(twoSum(numbers, target))
+
+
+
+
+#Using Pointers:
+def twoSum(nums: list[int], target: int) -> list[int]:
+    for l in range(len(nums)):
+        r = len(nums)-1
+        while l < r:
+            current_total = nums[l] + nums[r]
+            if current_total == target:
+                    return [l,r]
+            else: #move the left to the right if we need a greater value to get the total
+                r-=1
+            # else:#move the right to the left if we need a smaller value to get the total
+            #     l+=1
+
+
+print(twoSum([2,7,11,15], 9))
