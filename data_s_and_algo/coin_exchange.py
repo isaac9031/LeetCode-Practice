@@ -19,18 +19,18 @@ amount = 7                                                                      
 result = solution.coinChange(coins,amount)                                                         #now the list looks like this: dp = [0, 1, 2, 8, 8, 8, 8, 8]
 print(result)
 
-                                                                                # Note: when a=1 and coin = 3 will not pass the if statement since 1-3 = -2
-# ex: from coins = [1,3,4,5] amount = 7                                         #with  a=1 coin=4 will not pass either 1-4 = -3. same with a=1 coin = 5 1-5 = -4
-# it goes from 0 to the amount, in this case 7                                  #so far it looks like this dp = [0, 1, 2, 8, 8, 8, 8, 8]
-# we want the value  = #of coins needed                                         #when a=3 and coin=1 since 3-1=2, it will have min(8, 1+ dp[3-1]) which is min(8, 1+ dp[2]).
-#dp[0] = 0                                                                      #.. it will then have min(8, 1+2), after dp = [0, 1, 2, 3, 8, 8, 8, 8] (keeps track of the #of coins)
-#dp[1] = 1                                                                      #when a=3 and coin=3 then dp[3] = min(dp[3],1+dp[3-3])>> dp[3]=min(3,1+dp[0])>> dp[3]=1..
-#dp[2] = 2                                                                      #..the list looks like dp =[0, 1, 2, 1, 8, 8, 8, 8]
-#dp[3] = 1                                                                      #at the end db = [0, 1, 2, 1, 1, 1, 2, 2], which keep track of the minimum amount coins needed to reach a certain value(amount) with the coins that are provided
-#dp[4] = 1                                                                      #to reach 0 we need 0 coins, reach 1 needs 1 coin, reach amount of 2 we need 2 coins of 1, etc..
-#dp[5] = 1                                                                      #at the end dp[7] = 2 coins, one 4 coin and one 3 coin, or one 3 coin and one 4 coin.
-#dp[6] = 2                                                                      #lastly in line 36 we return dp[amount] if it is not the default value(8)
- #       coins+coints to complete the missing value                             #  2 != 7+1    ..so it will return 2
+                                                                         # Note: when a=1 and coin = 3 will not pass the if statement since 1-3 = -2
+# ex: from coins = [1,3,4,5] amount = 7                                  #with  a=1 coin=4 will not pass either 1-4 = -3. same with a=1 coin = 5 1-5 = -4
+# it goes from 0 to the amount, in this case 7                           #so far it looks like this dp = [0, 1, 2, 8, 8, 8, 8, 8]
+# we want the value  = #of coins needed                                  #when a=3 and coin=1 since 3-1=2, it will have min(8, 1+ dp[3-1]) which is min(8, 1+ dp[2]).
+#dp[0] = 0                                                               #.. it will then have min(8, 1+2), after dp = [0, 1, 2, 3, 8, 8, 8, 8] (keeps track of the #of coins)
+#dp[1] = 1                                                               #when a=3 and coin=3 then dp[3] = min(dp[3],1+dp[3-3])>> dp[3]=min(3,1+dp[0])>> dp[3]=1..
+#dp[2] = 2                                                               #..the list looks like dp =[0, 1, 2, 1, 8, 8, 8, 8]
+#dp[3] = 1                                                               #at the end db = [0, 1, 2, 1, 1, 1, 2, 2], which keep track of the minimum amount coins needed to reach a certain value(amount) with the coins that are provided
+#dp[4] = 1                                                               #to reach 0 we need 0 coins, reach 1 needs 1 coin, reach amount of 2 we need 2 coins of 1, etc..
+#dp[5] = 1                                                               #at the end dp[7] = 2 coins, one 4 coin and one 3 coin, or one 3 coin and one 4 coin.
+#dp[6] = 2                                                               #lastly in line 36 we return dp[amount] if it is not the default value(8)
+ #       coins+coints to complete the missing value                      #  2 != 7+1    ..so it will return 2
 #dp[7] =  1 + dp[6]          #using coin=1
 #       = 1 + 2
 #       = 3 coins           .. not minimal solution so we now go to coin 3
