@@ -133,7 +133,7 @@ def backspaceCompare(s, t):
         if i >= 0 and j >= 0 and s[i] != t[j]: #first, it makes sure that both i and j are greater than 0, then if the char are different it will return False
             return False
 
-        if (i >= 0) != (j >= 0):
+        if (i >= 0) != (j >= 0): # if both don't end up with negatime that means that one ends up with more char than the other so not the same
             return False
 
         i -= 1
