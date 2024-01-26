@@ -82,7 +82,7 @@ def backspaceCompare(s, t):
         return index
     #while loop to check each element that is not a #
     index_s = len(s)-1
-    index_t = len(s) -1
+    index_t = len(t) -1
     while index_s >= 0 or index_t>=0:
         index_s =  validChar(s, index_s)
         index_t = validChar(t, index_t)
@@ -101,4 +101,48 @@ def backspaceCompare(s, t):
 
 s = "ab#c"
 t = "ac#c"
+print(backspaceCompare(s,t))
+
+
+
+def backspaceCompare(s, t):
+    i, j = len(s)-1, len(t)-1
+    s_skip, t_skip = 0, 0 #used to know the number of times that we will have to backspace/skip to the left.
+
+    while i >= 0 or j >= 0:
+        while i >= 0:  #goes to else since the first char is not # so it then breaks and goes to the j while loop
+            if s[i] == '#':
+                s_skip += 1  #this makes sure the the loop heppens one more time if a # is found, this way it will go to the elif and will bring s_skip back to 0 and then it will make sure to skip the first valid char on the left of #
+                i -= 1 #its job is to skip the #
+            elif s_skip > 0: #used to skip  char on the left of #
+                s_skip -= 1
+                i -= 1 #its job is to skip char to the left
+            else:
+                break
+
+        while j >= 0:
+            if t[j] == '#':
+                t_skip += 1
+                j -= 1
+            elif t_skip > 0:
+                t_skip -= 1
+                j -= 1
+            else:
+                break
+
+        if i >= 0 and j >= 0 and s[i] != t[j]: #first, it makes sure that both i and j are greater than 0, then if the char are different it will return False
+            return False
+
+        if (i >= 0) != (j >= 0):
+            return False
+
+        i -= 1
+        j -= 1
+
+    return True
+
+
+s = "bxj##tw"
+
+t = "bxj###tw"
 print(backspaceCompare(s,t))
