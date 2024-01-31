@@ -35,11 +35,11 @@ def twoSum(nums: list[int], target: int) -> list[int]:
         while l < r:
             current_total = nums[l] + nums[r]
             if current_total == target:
-                    return [l,r]
+                    return [l+1,r+1]
             else: #move the left to the right if we need a greater value to get the total
                 r-=1
             # else:#move the right to the left if we need a smaller value to get the total
             #     l+=1
 
 
-print(twoSum([2,7,11,15], 9))
+print(twoSum([2,3,4], 6))
