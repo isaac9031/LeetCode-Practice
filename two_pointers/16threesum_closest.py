@@ -9,32 +9,38 @@
 def threeSumClosest(nums: list[int], target: int) -> int:
     nums.sort()
 
-    if len(nums)<3:
+    if len(nums) < 3:
         return None
-    for i, v in enumerate(nums):
-        if i>0 and v == nums[i-1]:
-            continue
-        lp = i+1
-        rp = len(nums)-1
-        i_total = v+ nums[lp] + nums[rp]
-        diff = abs(target-abs(i_total))
-        while lp < rp:
-            n_total = v+ nums[lp] + nums[rp]
-            n_diff = target-abs(n_total)
-            if n_diff == 0:
-                return n_diff
-            if diff < abs(n_diff):
-                diff = n_diff
-                rp+=1
-            if diff > n_diff:
-                lp+=1
-                while nums[lp] == nums[lp-1] and lp<rp: #used to not repeat the value in the same index as previous solutions, also we never want to pass the right pointer.
-                    lp+=1
-    return diff
 
-#we need to compare the new difference with the previous one
-#do we create a new variable to store the old one?
-nums = [-4,-1,1,1,2]
+    diff = float('inf')
+
+    for i, v in enumerate(nums):
+        if i > 0 and v == nums[i - 1]:
+            continue
+
+        lp = i + 1
+        rp = len(nums) - 1
+
+        while lp < rp:
+            curr_sum = v + nums[lp] + nums[rp]
+            curr_diff = target - curr_sum
+
+            if abs(curr_diff) < abs(diff):
+                diff = curr_diff
+
+            if curr_diff == 0:
+                return target
+
+            elif curr_diff > 0:
+                lp += 1
+            else:  # curr_diff < 0
+                rp -= 1
+
+    return target - diff
+
+# Test the function
+nums = [-1, 2, 1, -4]
 target = 1
-print(nums, target)
+result = threeSumClosest(nums, target)
+print(result)
 
