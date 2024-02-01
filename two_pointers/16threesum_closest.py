@@ -15,8 +15,8 @@ def threeSumClosest(nums: list[int], target: int) -> int:
     diff = float('inf')
 
     for i, v in enumerate(nums):
-        if i > 0 and v == nums[i - 1]:
-            continue
+        # if i > 0 and v == nums[i - 1]:
+        #     continue
 
         lp = i + 1
         rp = len(nums) - 1
@@ -35,12 +35,11 @@ def threeSumClosest(nums: list[int], target: int) -> int:
                 lp += 1
             else:  # curr_diff < 0
                 rp -= 1
-
+    print(target,"-", diff)
     return target - diff
 
 # Test the function
-nums = [-1, 2, 1, -4]
-target = 1
+nums = [1,1,1,0]
+target = -100
 result = threeSumClosest(nums, target)
 print(result)
-
