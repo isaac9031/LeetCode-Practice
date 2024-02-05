@@ -15,7 +15,7 @@ def threeSumClosest(nums: list[int], target: int) -> int:
     diff = float('inf')
 
     for i, v in enumerate(nums):
-        # if i > 0 and v == nums[i - 1]:
+        # if i > 0 and v == nums[i - 1]: not needed since we don't need unique triplets
         #     continue
 
         lp = i + 1
