@@ -48,7 +48,7 @@ def person_to_json(person):
     result = json.dumps(d)
     return result
 
-    # Return the value of result as the last line
+    # Return the value of result in JSON string format
 
 
 # Example usage:
