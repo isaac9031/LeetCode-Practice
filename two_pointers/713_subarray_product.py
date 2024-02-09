@@ -12,12 +12,12 @@ def numSubarrayProductLessThanK(nums: list[int], k: int) -> int:
     for rp in range(len(nums)):
         sub_total *= nums[rp]
         while sub_total >= k and lp<=rp: #if subtotal greaten than k then ...
-            sub_total/=nums[lp] #..remove the previous element by which subtotal was multiplied. Multiplictation cancels division and vice versa
-            lp+=1 #move the lp to the right, so both lp and rp do not consider that value.
+            sub_total/=nums[lp] #..remove the  previous value by which subtotal was multiplied in order to start over(we move lp to the right). Multiplictation cancels division.
+            lp+=1 #move the lp to the right, so both lp and rp do not consider that value.. Ex. in [10,5,2] we move to the right so now we have [5,2]
         if sub_total<k:
-                print("Subarray:", nums[lp:rp+1], "Subtotal:", sub_total)
-                #rp-lp makes sure to add one subarray if there is more than one element in it. takes care of the subarrays with only one element and the one with multiple element. ex. [5,2] will add two to ans since index 2-1 = 1 + 1(for the new individual element)
-                ans+=rp - lp + 1 #When the condition sub_total < k is satisfied, it means that the current subarray from lp to rp (inclusive) has a product less than k
+            print("Subarray:", nums[lp:rp+1], "Subtotal:", sub_total)
+             # Add the number of valid subarrays that end at the current position to the answer, the +1 comes from the one element subarray that will be formed from the new element. Ex. on [5,2] there will be one subarr for the [5,2] and another one for the 2 alone
+            ans+=rp - lp + 1 #When the condition sub_total < k is satisfied, it means that the current subarray from lp to rp (inclusive) has a product less than k
     return ans
 
 nums = [10, 5, 2, 6]
@@ -33,10 +33,13 @@ print(numSubarrayProductLessThanK(nums, k))
 # As rp continues to move forward, lp may also move forward, ensuring that the expression rp - lp + 1 continues to accurately reflect the length of the current subarray being processed.
 # This approach effectively handles both single-element and multi-element subarrays, ensuring that each valid subarray is counted exactly once in the final result.
 
+#If we were able to multiply times the next element and the sub_total is still less than k then that means that the rp is pointin at
+#.. at a single-element subarray that is less than k as well. That is how rp-lp+1 works. the +1 is for the single elemnt-subarray
 
-
-
-
+# [10]                     +1
+# [10, 5]  [5]             +2
+# [ 5, 2]  [2]             +2
+# [5, 2, 6]   [2, 6]  [6]  +3
 
 
 ##time excceeding.  lOOK at video and the booked mark
