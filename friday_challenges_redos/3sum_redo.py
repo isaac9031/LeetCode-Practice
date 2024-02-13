@@ -31,3 +31,6 @@ print(threeSum(nums))
 #if we have [0,-1,-1,-1,2,4]
 #we will first have [0,-1,-1] for the first  triplet
 #without the while loop we will have another [0,-1,-1] since index 2 and 3 are the same value
+
+
+# https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63ddad31ff57d05f33aceba8
