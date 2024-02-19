@@ -2,8 +2,6 @@
 # subarrays where the product of all the elements in the subarray is strictly less than k.
 
 def numSubarrayProductLessThanK(nums: list[int], k: int) -> int:
-    #multiply current times the next one, we need an empty list to multiply those values
-    #since contigues we can use two pointers next to each other
     if len(nums)<=1:
         return 0
     ans = 0  #will count each subarray that is less than k
@@ -12,7 +10,7 @@ def numSubarrayProductLessThanK(nums: list[int], k: int) -> int:
     for rp in range(len(nums)):
         sub_total *= nums[rp]
         while sub_total >= k and lp<=rp: #if subtotal greaten than k then ...
-            sub_total/=nums[lp] #..remove the  previous value by which subtotal was multiplied in order to start over(we move lp to the right). Multiplictation cancels division.
+            sub_total/=nums[lp] #..remove lp value in order to start over(we move lp to the right). Multiplictation cancels division.
             lp+=1 #move the lp to the right, so both lp and rp do not consider that value.. Ex. in [10,5,2] we move to the right so now we have [5,2]
         if sub_total<k:
             print("Subarray:", nums[lp:rp+1], "Subtotal:", sub_total)
