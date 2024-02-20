@@ -23,8 +23,8 @@ class Solution:
                 lp+=1
             elif height[lp]>height[rp]:
                 rp-=1
-            else:
-                rp-=1
+            else:  #used in case both height[lp] and height[rp] are the same and..
+                rp-=1 #..we need to continue to check the rest of the containers formed from the other bars.
         return res
 
 container1 = Solution()

@@ -33,7 +33,7 @@ print(threeSum(nums))
 # if the original array was [-3,-3,-3,1,2,4] then we would get [-3,1,2] two times because the -3 in index 1 and in index 2 will add up to 0 with index 3 and 4
 
 
-# Time Complexity O(n^2)
+# Time Complexity O(n)^2
 #Space: O(1) or O(n)
 
 def threeSum( nums: list[int]) -> list[list[int]]:
@@ -65,10 +65,15 @@ def threeSum( nums: list[int]) -> list[list[int]]:
     return triplets
 
 
-
-
-
-
-
 nums = [-3,3,4,-3,1,2]
 print(threeSum(nums))
+
+# Time complexity
+# sorting array is O(n log n)
+# one loop for the first i value and a second loop that has an inside loop to solve for j and k. So we have two nested loops
+# the two nested loops give us O(n)^2
+
+# O(n log n) + O(n)^2 = O(n)^2
+
+# Space Complexity can be O(1) or O(n) depending on the library or implementation
+#
