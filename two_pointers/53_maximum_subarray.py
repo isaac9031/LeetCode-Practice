@@ -1,27 +1,55 @@
-class Solution:
-    def maxSubArray(self, nums: list[int]) -> int:
-        #the first max sum will be -2, then we need to compare
-        max_sum = float('-inf')  # Initialize max_sum to negative infinity
-        current_sum = 0  # Initialize current_sum to 0
-        rp = 0  # Initialize rp index of the current subarray
 
-        for lp in range(len(nums)):
-            current_sum += nums[lp]
-            max_sum = max(max_sum, current_sum)
 
-            # Shrink the window if the current_sum becomes negative
-            while current_sum < 0 and rp <= lp:
-                current_sum -= nums[rp]
-                rp += 1
 
+def maxSubArray( nums: list[int]) -> int:
+        left, right = 0, 0
+        window_sum, max_sum = 0, float('-inf')
+        while right < len(nums):
+            # Expand the window to the right
+            window_sum += nums[right]
+            right += 1
+            # Update the maximum subarray sum seen so far
+            max_sum = max(max_sum, window_sum)
+            # Shrink the window from the left if the sum is negative
+            while window_sum < 0:
+                window_sum -= nums[left]
+                left += 1
         return max_sum
 
-
-
-largest_sum = Solution() #making an instance of that class
 nums = [-2,1,-3,4,-1,2,1,-5,4]
-print(largest_sum.maxSubArray(nums))
+print(maxSubArray(nums))
 
 
-#we move lp and rp to the right if everything behind us is less than the recent nums[rp] so lp=rp
-#lp stay in the same place if its bigger than anyting in front of it
+
+
+# largest_sum = Solution() #making an instance of that class
+# nums = [-2,1,-3,4,-1,2,1,-5,4]
+# print(largest_sum.maxSubArray(nums))
+
+
+    # def maxSubArray(self, nums: list[int]) -> int:
+    #     maxSub, currSub = nums[0], 0
+
+    #     for n in nums:
+    #         if currSub < 0:
+    #             currSub = 0
+    #         currSub += n
+    #         maxSub = max(maxSub,currSub)
+    #     return maxSub
+
+
+
+# def maxSubArray( nums: list[int]) -> int:
+#     if not nums:
+#         return 0
+#     i, j = 0, 0 #i<=j
+#     maxValue = float("-inf")
+#     window_sum = 0
+#     while j < len(nums):
+#         window_sum += nums[j]
+#         j += 1
+#         maxValue = max(maxValue, window_sum)
+#         while i<j and window_sum < 0: #use while to shrink the window
+#             window_sum -= nums[i]
+#             i += 1
+#     return maxValue
