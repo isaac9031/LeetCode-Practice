@@ -2,13 +2,13 @@ def maxSubArray( nums: list[int]) -> int:
     if len(nums)<1:
         return 0
     left, right = 0, 0
-    max_value = float("-inf") #keeps trac of the max value even if it is negative
+    max_value = float("-inf") #keeps track of the max value even if it is negative
     window_sum = 0
     while right < len(nums):
         window_sum += nums[right]
         right+=1 #this makes sure that the right moves and also that it keeps moving if the next while loop is false, which makes the window grow
         max_value = max(max_value, window_sum)
-        #we now remove the values that makes the answer negative in window_sum, but still keep the maximum value in the max_value variable, even if it is negative
+        #we now remove the values before the one that makes window_sum negative. We still keep the maximum value in the max_value variable, even if it is negative
         while left<right and window_sum<0: #makes sures that the window keeps moving right(left+=1) if the window sum is still negative, then it goes back to the first loop if positive
             window_sum -= nums[left]
             left+=1

@@ -22,23 +22,6 @@ print(maxSubArray(nums))
 
 
 
-# largest_sum = Solution() #making an instance of that class
-# nums = [-2,1,-3,4,-1,2,1,-5,4]
-# print(largest_sum.maxSubArray(nums))
-
-
-    # def maxSubArray(self, nums: list[int]) -> int:
-    #     maxSub, currSub = nums[0], 0
-
-    #     for n in nums:
-    #         if currSub < 0:
-    #             currSub = 0
-    #         currSub += n
-    #         maxSub = max(maxSub,currSub)
-    #     return maxSub
-
-
-
 # def maxSubArray( nums: list[int]) -> int:
 #     if not nums:
 #         return 0
