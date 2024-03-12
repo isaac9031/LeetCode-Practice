@@ -51,12 +51,10 @@ def minSubArrayLen(target: int, nums: list[int]) -> int:
             min_len_sub = min(min_len_sub, right - left + 1)
             current_sum-=nums[left] #before moving the left pointer we want to decrease it by that index before we remove it
             left+=1
-
-
-    return 0 if min_len_sub == float("inf") else min_len_sub
-
-
-
+    if min_len_sub == float("inf"):
+        return 0
+    else:
+        return min_len_sub
 
 
 # Test

@@ -18,7 +18,7 @@ def maxSubArray( nums: list[int]) -> int:
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 print(maxSubArray(nums))
 
-# while left<right and window_sum<0: #makes sures that the window keeps moving right(left+=1) if the window sum is still negative, then it goes back to the first loop if the window_sum becomes positive
+# while left<right and window_sum<0: #makes sures that the window keeps moving right(left+=1) if the window sum is still negative. it goes back to the first loop if the window_sum becomes positive
 #when it gets to -3 it will add it to 1, which will make the window_sum = -2, then it will get inside the second while loop, there..
 #.. we will first remove the 1 from the left(making window_sum=-3) and move the index left now will be 2...
 #..then it will go thru the same loop again since right index = 3 and left = 2.
@@ -30,3 +30,8 @@ print(maxSubArray(nums))
 #then in the next loop on the same while loop it will add 1, and the new window sum is 6, which will be our new max value
 #then it will still stay in the same loop and add -5 making the window sum 1, and still max value as 6
 #in the last loop it will add 4, which will give us a window sum of 5, which is less than the current max value of 6
+
+
+
+
+

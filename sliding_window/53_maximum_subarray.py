@@ -1,6 +1,5 @@
-
-
-
+# Given an integer array nums, find the
+# subarray with the largest sum, and return its sum.
 def maxSubArray( nums: list[int]) -> int:
         left, right = 0, 0
         window_sum, max_sum = 0, float('-inf')
@@ -36,3 +35,5 @@ print(maxSubArray(nums))
 #             window_sum -= nums[i]
 #             i += 1
 #     return maxValue
+
+
