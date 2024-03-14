@@ -20,6 +20,15 @@ def remove_duplicate_letters(s):
 
 print(remove_duplicate_letters("appleapple"))
 
+def remove_duplicate_letters(s):
+    string = ""
+    for l in s:
+        if l not in string:
+            string+=l
+    return string
+
+print(remove_duplicate_letters("appleapple"))
+
 
 
 # def last_item(values):
@@ -30,3 +39,15 @@ print(remove_duplicate_letters("appleapple"))
 #         return last_item
 
 # print(last_item(["a", "b"]))
+
+
+#we CANNOT use set becaue Sets are unordered, so you cannot be sure in which order the items will appear.
+# Sets cannot have two items with the same value.
+def remove_duplicate_letters(s):
+    unique_s = set()
+    for l in s:
+        if s not in unique_s:
+            unique_s.add(l)
+    return ''.join(unique_s)
+
+print(remove_duplicate_letters("appleapple"))

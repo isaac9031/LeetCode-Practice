@@ -12,6 +12,16 @@
 #   * input:  {"one": 1, "two": 2, "three": 3}
 #     output: {1: "one", 2: "two", 3: "three"}
 
+
+def reverse_dictionary(dictionary):
+    newdic = {}
+    for k, v in dictionary.items():
+        newdic[v] = k
+    return newdic
+
+print(reverse_dictionary({"one": 1, "two": 2, "three": 3}))
+
+
 def reverse_dictionary(dictionary):
     new_dictionary= {}
     for key, value in dictionary.items():
@@ -20,10 +30,3 @@ def reverse_dictionary(dictionary):
 
 print(reverse_dictionary({"one": 1, "two": 2, "three": 3}))
 
-##
-# def test():
-#     new_dic = {}
-#     new_dic["fruit"] = "apple"
-#     return new_dic
-
-# print(test())

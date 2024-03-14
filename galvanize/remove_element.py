@@ -35,3 +35,22 @@ def remove_second_smallest(array):
 
 array = [5, 3, 2, 1, 4]
 print(remove_second_smallest(array))
+
+
+
+def remove_second_small(lista):
+    #a variable to have the min value
+    #another one for the second smallest
+    #a for loop to compare against previous values
+    #remove the second smallest
+    minimum = min(lista)
+    sec_min = float("inf") #still unknown
+    for n in lista:
+      if n<sec_min and n != minimum:
+         sec_min = n
+    lista.remove(sec_min)
+    return lista
+
+
+lista = [5, 3, 2, 1, 4]
+print(remove_second_small(lista))

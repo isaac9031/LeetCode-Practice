@@ -17,14 +17,36 @@
 #
 # problem to get a good feel for how to solve it.
 
+
+
+
+def sum_of_squares(values):
+    total = 0
+    if len(values) == 0:
+        return None
+    for n in values:
+        total+= n**2
+    return total
+
+print(sum_of_squares([2, 4]))
+
+
+
 def sum_of_squares(values):
     square_list = []
     if len(values) == 0:
         return None
     else:
-        for i in values:
-            square_list.append(i**2)
+        for n in values:
+            square_list.append(n**2)
         return sum(square_list)
 
-
 print(sum_of_squares([2,4]))
+
+
+def sum_of_squares(values):
+    square_list = [x ** 2 for x in values]
+    print(square_list)
+    return sum(square_list) if len(square_list) > 0 else None
+
+print(sum_of_squares([2, 4]))

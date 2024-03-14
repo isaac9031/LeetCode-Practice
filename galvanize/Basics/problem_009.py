@@ -12,13 +12,14 @@
 # Write out some pseudocode before trying to solve the
 # problem to get a good feel for how to solve it.
 
+# slicing works in lists, strings, and tuples.
+
 def is_palindrome(word):
-    thesame = str(word)
-    its_palindrome = reversed(thesame)
-
-    if thesame == "".join(its_palindrome):
-        return "its_palindrome"
+    word_str = str(word)
+    if word_str[::-1] == word_str:
+        return True
     else:
-        return "its not a palindrome"
+        return False
 
-print(is_palindrome(4444))
+
+print(is_palindrome(44445 ))

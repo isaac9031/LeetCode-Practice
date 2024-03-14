@@ -21,6 +21,34 @@
 # Write out your own pseudocode to help guide you.
 
 def add_csv_lines(csv_lines):
+    total = 0
+    i = 0
+    while i < len(csv_lines):
+        line = csv_lines[i]
+        values = line.split(',')
+        j = 0
+        while j < len(values):
+            total += int(values[j])
+            j += 1
+        i += 1
+    return total
+
+print(add_csv_lines(["8,1,7", "10,10,10"]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def add_csv_lines(csv_lines):
     new = []
     total = 0
     total_each = []

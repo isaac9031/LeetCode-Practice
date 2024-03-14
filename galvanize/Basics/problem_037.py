@@ -22,17 +22,32 @@
 #     length: 5
 #     pad:    " "
 #     result: "   19"
-
 def pad_left(number, length, pad):
-    spaces =pad *(length - len(str(number)))
-    return spaces + str(number)
+    spaces = pad*(length-len(str(number)))
+    return spaces +str(number)
 
 print(pad_left(19,5,"*"))
 
 
+
+def pad_left(number, length, pad):
+    spaces = ""
+    while len(spaces) < length-len(str(number)):
+        spaces += pad
+    spaces+=str(number)
+    return spaces
+
+
+print(pad_left(19,5,"*"))
+
+
+
 #Online Solution
-# def pad_left(number, length, pad):
-#     s = str(number)                                     # solution
-#     while len(s) < length:                              # solution
-#         s = pad + s                                     # solution
-#     return s
+##another way to solve it
+# def pad_lef(number, length, pad):
+#     string = str(number) #so it will be 2, and length will be 4 in this case
+#     while len(string)<length:
+#         string = pad + string       #will insert a * behind string, new length will become three, then four, ...so on
+#     return string
+
+# print(pad_lef(19,5,"*"))

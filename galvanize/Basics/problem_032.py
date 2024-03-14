@@ -16,6 +16,19 @@
 # problem to get a good feel for how to solve it.
 
 def sum_of_first_n_numbers(limit):
+    if limit < 0:
+        return None
+    if limit == 0:
+        return 0
+    total = 0
+    for i in range(limit+1): #need +1 to also cover 5, since range is not inclusive for the stop range(start,stop,step)
+        total+=i
+    return total
+
+print(sum_of_first_n_numbers(5))
+
+
+def sum_of_first_n_numbers(limit):
     total = limit
     if limit <0:
         return None

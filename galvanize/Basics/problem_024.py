@@ -18,3 +18,9 @@ def calculate_average(values):
 print(calculate_average([90,90,100,100]))
 
 
+
+#second way faster
+def calculate_aver(values):
+    return sum(values)/len(values)
+
+print(calculate_aver([90,90,100,100]))
